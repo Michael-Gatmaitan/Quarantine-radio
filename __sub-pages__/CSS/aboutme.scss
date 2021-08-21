@@ -1,0 +1,46 @@
+$mainColor: #FFFF14;
+$green: #11E84A;
+$black: #262626;
+$gray: #343434;
+$white: #F8FFF9;
+
+html,
+body {
+    position: relative;
+    height: 100%;
+}
+body {
+    background: $green;
+    color: $black;
+    margin: 0;
+    padding: 0;
+}
+* {
+    box-sizing: border-box;
+}
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+.swiper-slide {
+    padding: 0 45px;
+    background: $white;
+    display: flex;
+    align-items: center;
+
+    .content-container {
+        .header {
+            font-family: 'Helvetica Neue Black', sans-serif;
+            color: $green;
+            font-size: 96px;
+        }
+        .paragraph-content {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            margin-top: 60px;
+            color: $black;
+            width: 700px;
+            max-width: 700px;
+        }
+    }
+}

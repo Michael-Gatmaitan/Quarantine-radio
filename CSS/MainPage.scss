@@ -1,0 +1,995 @@
+$mainColor: #FFFF14;
+$green: #11E84A;
+$black: #262626;
+$gray: #343434;
+$white: #F8FFF9;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Red+Hat+Text:wght@400;500;700&display=swap');
+
+@mixin btn {
+    color: #fff;
+    font-family: 'Red Hat Text', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    // font-weight: 600;
+    letter-spacing: 0.5px;
+}
+@mixin header {
+    font-family: 'Poppins', sans-serif;
+    font-size: 60px;
+    color: $black;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+
+    line-height: 72px;
+}
+@mixin bodyParagraph {
+    font-family: 'Red Hat Text', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.15px;
+    color: rgba($black, 0.84);
+    
+    margin-top: 20px;
+
+    line-height: 1.5rem;
+}
+@mixin header2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: 0.25px;
+    color: $black;
+}
+
+@mixin songTitle {
+    font-family: 'Red Hat Text', sans-serif;
+    font-size: 24px;
+}
+@mixin artist {
+    font-family: 'Red Hat Text', sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.15px;
+    color: $black;
+}
+
+@mixin flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+@mixin playlistName {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    color: $white;
+}
+@mixin playlistSongCount {
+    @include artist();
+    color: $white;
+}
+
+// Bottom player def duration Font
+@mixin botPlayerDurationFont {
+    font-family: 'Ubuntu', 'Red Hat Text' sans-serif;
+    font-size: 14px;
+    color: $white;
+    letter-spacing: 0.1px;
+    text-shadow: 0 4px 6px rgba(38, 38, 38, 0.18);
+}
+
+// Mixins for sections
+@mixin sectionTitle {
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    margin-top: 222px;
+}
+@mixin sectionHeaderTitle {
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 45px;
+    margin-top: 80px;
+}
+@mixin sectionParagraph {
+    color: #fff;
+    font-family: 'Red Hat Text Medium';
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    line-height: 1.5em;
+    margin-top: 30px;
+    color: #fff;
+}
+
+body, html {
+    scroll-behavior: smooth;
+    // user-select: none;
+}
+body {
+    margin: 0 45px;
+    // padding: 0 45px;
+    height: 400vh;
+    background-color: $mainColor;
+    overflow: hidden;
+}
+::selection {
+    background-color: $green;
+    color: $white;
+    border-radius: 20px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+button {
+    border: none;
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    user-select: none;
+    pointer-events: none;
+}
+
+.cookieCon {
+    width: 450px;
+    height: 250px;
+    background-color: rgba($white, 0.6);
+    padding: 26px 15px 15px 15px;
+    border-radius: 30px;
+    position: fixed;
+    bottom: 50px;
+    transform: translateX(-50%);
+    left: 50%;
+    z-index: 999;
+    transition: 0.2s cubic-bezier(0.215, 0.610, 0.355, 1);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    
+    .insideCookie {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        align-items: center;
+
+        .cookieDes {
+            .cookieHeader {
+                @include header2();
+            }
+            .cookieParagraph {
+                @include bodyParagraph();
+                margin-top: 6px;
+            }
+        }
+    }
+    .cookieBtn {
+        @include btn();
+        width: 100%;
+        height: 60px;
+        border-radius: 10px 10px 15px 15px;
+    }
+}
+
+nav {
+    width: 100%;
+    height: 80px;
+    // display: none;
+    position: sticky;
+    top: 0;
+    align-items: center;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    // .logo {
+    //     display: inline-block;
+    // }
+
+    .buttons {
+        height: 80px;
+        display: grid;
+        justify-content: space-between;
+        grid-template-columns: repeat(4, auto);
+        align-items: center;
+        grid-gap: 40px;
+        
+        .ordButton {
+            @include btn();
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .cta {
+            @include btn();
+            border: solid 5px #fff;
+            color: #fff;
+            width: 140px;
+            height: 50px;
+            border-radius: 100px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        div {
+            @include flexCenter();
+        }
+    }
+}
+
+::-webkit-scrollbar {
+    display: none;
+
+    min-height: 30px;
+}
+
+.comp {
+    .header {
+        @include header();
+    }
+
+    .paragraph {
+        @include bodyParagraph();
+    }
+
+    .mbtn {
+        @include btn();
+    }
+}
+
+.comp1 {
+    margin-top: 170px;
+}
+.comp2 {
+    margin-top: 320px;
+}
+
+.musicBar {
+    width: 586px;
+    height: 90px;
+    background-color: $mainColor;
+    padding: 15px;
+    border-radius: 15px;
+    position: relative;
+    transform-origin: center center;
+    overflow: hidden;
+
+    .overflowController {
+        overflow: hidden;
+    }
+    .musicTitle {
+        @include songTitle();
+        width: 200%;
+        color: #262626;
+    }
+
+    .interactMusic {
+        width: 300px;
+        height: 300px;
+        background-color: $green;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 0;
+        left: 0;
+        z-index: 0;
+        border-radius: 50%;
+    }
+
+    .musicArtist, .dur {
+        @include artist();
+        display: inline;
+        opacity: 0.84;
+    }
+    .dur {
+        position: absolute;
+        right: 135px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .musicTitle, .musicArtist {
+        transition: 0.1s ease-in;
+    }
+
+    .iconContainer {
+        width: 135px;
+        height: 100%;
+        background-color: $mainColor;
+        position: absolute;
+        right: 0;
+        top: 0;
+        border-radius: 15px;
+        z-index: 2;
+
+        .iconHolder {
+            display: grid;
+            grid-template-columns: repeat(2, auto);
+            grid-gap: 20px;
+            align-items: center;
+            position: absolute;
+            transform: translateY(-50%);
+            top: 50%;
+            left: 30px;
+
+            .playCon {
+                width: 46px;
+                height: 46px;
+                background-color: $green;
+                @include flexCenter();
+                border-radius: 10px;
+                transition: background-color 0.2s cubic-bezier(0.215, 0.610, 0.355, 1);
+                cursor: pointer;
+                
+                // transform: translateY(20px);
+                // opacity: 0;
+            }
+            .heartCon {
+                width: 43px;
+                height: 43px;
+                background-color: $black;
+                @include flexCenter();
+                border-radius: 10px;
+                cursor: pointer;
+                // transform: translateY(20px);
+                // opacity: 0;
+            }
+        }
+    }
+}
+
+.minViewContainer {
+    width: 100vw;
+    height: 0vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: url("../Images/artist avicii.jpg");
+    background-size: cover;
+    background-position: 50% 50%;
+    z-index: 60;
+    opacity: 1;
+
+    .backgroundView {
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+}
+
+.bottomPlayer {
+    width: 100vw;
+    height: 100px;
+    background-color: rgba($black, 1);
+    position: fixed;
+    left: 0;
+    bottom: -120px;
+    // bottom: -60px;
+    // bottom: 0;
+    padding: 15px 45px;
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: 580px 1fr 170px;
+    grid-template-rows: auto;
+    z-index: 0;
+    
+    .con {
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+
+        .minimizeAction {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 35px;
+            transition: 0.2s ease;
+            opacity: 0;
+            // background-color: $gray;
+            @include flexCenter();
+        }
+        
+        .artistPic {
+            width: 70px;
+            height: 70px;
+            border: solid 2px $white;
+            border-radius: 50%;
+            // background-image: url("../Images/artist lofi.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .songCon {
+            height: 70px;
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+            justify-content: flex-start;
+            width: 500px - 90px;
+            overflow: hidden;
+
+            .songTitleBot {
+                @include songTitle();
+                color: $white;
+                text-shadow: 0 4px 6px rgba(38, 38, 38, 0.18);
+
+            }
+            
+            .artistBot {
+                @include artist();
+                margin-top: 4px;
+                color: $white;
+                text-shadow: 0 4px 6px rgba(38, 38, 38, 0.18);
+
+            }
+        }
+    }
+
+    .durationContainer {
+        padding: 0 30px;
+        transform-origin: center center;
+        transform: translateX(-30px);
+        @include flexCenter();
+
+        .durationBarParentContainer {
+            width: 100%;
+            margin: auto;
+            @include botPlayerDurationFont();
+            text-shadow: 0 4px 6px rgba(38, 38, 38, 0.18);
+
+            .durationBarContainer {
+                display: grid;
+                align-items: center;
+                grid-template-columns: auto auto auto ;
+                grid-gap: 15px;
+                
+                .durationBarTimestampCon {
+                    width: 400px;
+                    height: 4px;
+                    background-color: #393939;
+                    position: relative;
+                    border-radius: 10px;
+                    
+                    .durationBarTimestamp {
+                        width: 0;
+                        height: 4px;
+                        background-color: $white;
+                        position: absolute;
+                        border-radius: 10px;
+                        left: 0;
+                    }
+
+                    .timestampCirc {
+                        width: 24px;
+                        height: 24px;
+                        border: solid 4px $black;
+                        background-color: $white;
+                        position: absolute;
+                        transform: translate(-50%, -50%);
+                        top: 50%;
+                        left: 0;
+                        border-radius: 50%;
+                        @include flexCenter();
+
+                        .mid {
+                            width: 10px;
+                            height: 10px;
+                            background-color: $black;
+                            border-radius: 50%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .btnCon {
+        display: grid;
+        grid-template-columns: 40px 15px 60px 15px 40px;
+        width: 170px;
+        align-items: center;
+        position: absolute;
+        transform: translate(0, -50%);
+        top: 50%;
+        right: 45px;
+
+        .prev, .next {
+            width: 40px;
+            height: 40px;
+        }
+        .play {
+            width: 60px;
+            height: 60px;
+        }
+        .prev, .play, .next {
+            background-color: $white;
+            border-radius: 50%;
+            cursor: pointer;
+            @include flexCenter();
+        }
+    }
+
+    .states {
+        width: 95px;
+        height: 40px;
+        position: absolute;
+        bottom: 0;
+        left: 209px;
+        display: grid;
+        justify-content: space-between;
+        grid-template-columns: repeat(2, auto);
+        user-select: none;
+        
+        div {
+            width: 40px;
+            height: 40px;
+            @include flexCenter();
+            border: solid 2px #fff;
+            opacity: 0.45;
+            transition: 0.1s ease;
+            border-radius: 50%;
+        }
+    }
+}
+
+
+// For transition purpose only
+.transitionToPlayer {
+    width: 0vw;
+    height: 100vh;
+    position: fixed;
+    background-color: $white;
+    top: 0;
+    left: 0;
+    z-index: 70;
+    @include flexCenter();
+
+    img {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+.mainPlayerMainContainer {
+    width: 100%;
+    height: 100vh;
+    background-color: $black;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 50;
+    opacity: 0;
+    pointer-events: none;
+    border-left: none;
+    // pointer-events: none; -> pointer-events: all;
+
+    .mainPlayerContainer {
+        width: 100%;
+        height: 100%;
+        padding: 20px 45px;
+
+        .mainCon {
+            width: 100%;
+            height: 100%;
+            padding: 15px;
+            background-color: $gray;
+            border-radius: 30px;
+            display: grid;
+            grid-template-columns: 35% auto;
+            grid-gap: 15px;
+            overflow: hidden;
+
+            .playlistMainContainer, .musicBarsMainContainer {
+                background-color: $black;
+                border-radius: 15px;
+            }
+
+            .playlistMainContainer {
+                border: solid 15px $black;
+                .playlistContainer {
+                    height: 100%;
+                    display: grid;
+                    grid-template-rows: 60px auto;
+                    grid-gap: 30px;
+
+                    .playlistTitle {
+                        width: 100%;
+                        padding: 9px 10px;
+                        border-radius: 15px;
+                        @include header2();
+                        color: $white;
+                        background-color: $gray;
+                    }
+
+                    .playlists {
+                        width: 100%;
+                        // height: 300px;
+                        background-color: $gray;
+                        border-radius: 15px;
+                        border: solid 15px $gray;
+                        border-right: none;
+
+                        .playlistBarsContainer {
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 15px;
+                            overflow-y: scroll;
+
+                            .playlistBars {
+                                width: 100%;
+                                height: 0;
+                                padding: 0 0 15px 0;
+                                display: grid;
+                                grid-auto-rows: auto;
+                                grid-gap: 15px;
+
+                                ._playlistBar {
+                                    width: 100%;
+                                    height: 69px;
+                                    background-color: $black;
+                                    border-radius: 5px;
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    overflow: hidden;
+                                    padding: 19px 15px;
+                                    position: relative;
+                                    cursor: pointer;
+                                    transition: 0.3s ease-out;
+                                    color: $white;
+
+                                    .plName {
+                                        pointer-events: none;
+                                        @include playlistName();
+                                        color: inherit;
+                                    }
+
+                                    .plSongCount {
+                                        pointer-events: none;
+                                        @include playlistSongCount();
+                                        color: inherit;
+                                    }
+                                }
+                            }
+                        }
+
+                        // Scroll bar styles
+                        ::-webkit-scrollbar {
+                            display: block;
+                            width: 32px;
+                        }
+                        ::-webkit-scrollbar-thumb {
+                            // width: 100px;
+                            background-color: $black;
+                            border: solid 6px $gray;
+                            border-radius: 10px;
+                        }
+                        ::-webkit-scrollbar-thumb:hover {
+                            background-color: $green;
+                        }
+                        ::-webkit-scrollbar-thumb:active {
+                            background-color: darken($color: $green, $amount: 10);
+                            // background-color: #f00;
+                        }
+                    }
+                }
+            }
+
+            .musicBarsMainContainer {
+                padding: 15px 0 15px 15px;
+                display: grid;
+                grid-template-rows: 60px auto;
+                grid-gap: 30px;
+
+                .title {
+                    width: calc(100% - 15px);
+                    height: 60px;
+                    background-color: $gray;
+                    padding: 9px 10px;
+                    border-radius: 15px;
+                    @include header2();
+                    color: $white;
+
+                    .activeTitle {
+                        color: $green;
+                        background-color: $black;
+                        padding: 0 12px;
+                        margin-left: 6px;
+                        border-radius: 12px;
+                    }
+                }
+
+                .musicBarconOv {
+                    width: 100%;
+                    height: 100%;
+                    overflow-y: scroll;
+                    overflow-x: hidden;
+                    border-radius: 15px;
+                    
+                    .musicBarContainer {
+                        width: 100%;
+                        height: 0;
+                        display: grid;
+                        grid-auto-rows: auto;
+                        grid-gap: 15px;
+
+                        .musicBar {
+                            width: 100%;
+                            overflow: hidden;
+                            // margin-left: 5px;
+
+                            .iconHolder {
+                                left: 15px;
+                            }
+                        }
+                    }
+
+                    // Scroll bar styles
+                    scroll-behavior: smooth;
+                }
+                ::-webkit-scrollbar {
+                    display: block;
+                    width: 32px;
+                }
+                ::-webkit-scrollbar-thumb {
+                    // width: 100px;
+                    background-color: $gray;
+                    border: solid 6px $black;
+                    border-radius: 10px;
+                }
+                ::-webkit-scrollbar-thumb:hover {
+                    background-color: $green;
+                }
+                ::-webkit-scrollbar-thumb:active {
+                    background-color: darken($color: $green, $amount: 10);
+                }
+            }
+
+        }
+    }
+}
+.lofi {
+    background-color: #fff;
+}
+
+.block {
+    width: 100vw;
+    height: 100vh;
+    background-color: #f00;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.5s ease-in;
+}
+
+// Body Content
+.sections-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    .pageWizzardContainer {
+        display: grid;
+        grid-template-rows: repeat(4, auto);
+        grid-gap: 7px;
+        position: fixed;
+        right: 45px;
+        transform: translateY(-50%);
+        top: 50%;
+        z-index: 40;
+
+        .wizzards {
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.12);
+            border-radius: 15px;
+            transition: 0.25s ease-in-out;
+            transform-origin: center center;
+            cursor: pointer;
+        }
+        
+        .activeWizzard {
+            height: 25px;
+        }
+    }
+
+    .wrapper {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        // padding: 0;
+        // padding-left: calc(45px + 115px);
+    
+        .content-container {
+            padding-left: 160px;
+            
+            .title {
+                @include sectionTitle();
+            }
+
+            .header {
+                @include sectionHeaderTitle();
+            }
+
+            .paragraph {
+                width: 420px;
+                @include sectionParagraph();
+            }
+        }
+
+        .filt {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -3;
+        }
+    
+        .parallax {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -5;
+        }
+    }
+
+    .page4 {
+        .filt {
+            background: rgba($black, 0.15);
+        }
+        .parallax {
+            background-image: url("../Images/Page-4-bg-min.jpg");
+        }
+
+        .cta {
+            margin-top: 30px;
+
+            button {
+                width: 140px;
+                height: 50px;
+                background-color: #fff;
+                @include btn();
+                border-radius: 50px;
+                display: inline-block;
+                color: $black;
+            }
+
+            .hireme {
+                margin-left: 20px;
+                background-color: transparent;
+                border: solid 5px #fff;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.errorOccured {
+    padding: 10px 15px;
+    @include flexCenter();
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    z-index: 60;
+    background-color: $gray;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.16);
+    pointer-events: none;
+    bottom: 0;
+    opacity: 0;
+
+    div {
+        color: rgb(226, 49, 26);
+    }
+}
+@media (max-width: 800px) {
+    body {
+        margin: 0 10px;
+        overflow: auto;
+    }
+
+    ::scroll-bar {
+        display: none;
+    }
+
+    nav {
+        .buttons {
+            display: none;
+        }
+    }
+
+    .sections-container {
+        
+        .pageWizzardContainer {
+            display: none;
+            
+        }
+
+        .wrapper {
+        
+            .content-container {
+                padding-left: 10px;
+                
+                .title {
+                    font-size: 18px;
+                }
+        
+                .header {
+                    font-size: 32px;
+                    line-height: 32px;
+                    margin-top: 40px;
+                }
+        
+                .paragraph {
+                    width: 285px;
+                }
+            }
+        }
+
+        .page4 {
+    
+            .cta {
+    
+                button {
+                    width: 120px;
+                    height: 40px;
+                    font-size: 14px;
+                }
+    
+                .hireme {
+                    margin-left: 15px;
+                }
+            }
+        }
+    }
+
+    // *::-webkit-scrollbar {
+    //     display: none;
+    // }
+
+    // .playlistBarsContainer::-webkit-scrollbar {
+    //     display: none;
+    // }
+    // .musicBarconOv::-webkit-scrollbar {
+    //     display: none;
+    // }
+
+    // Playlibbar & Playlistbar container things
+    .mainPlayerMainContainer .mainPlayerContainer .mainCon .playlistMainContainer .playlistContainer .playlists ::-webkit-scrollbar {
+        display: none;
+    }
+    .mainPlayerMainContainer .mainPlayerContainer .mainCon .playlistMainContainer .playlistContainer {
+        padding: 10px;
+    }
+
+    // Musicbar & Musicbar container things
+    .mainPlayerMainContainer .mainPlayerContainer {
+        padding: 10px;
+    }
+    .mainPlayerMainContainer .mainPlayerContainer .mainCon .musicBarsMainContainer {
+        padding: 15px;
+    }
+    .mainPlayerMainContainer .mainPlayerContainer .mainCon .musicBarsMainContainer ::-webkit-scrollbar {
+        display: none;
+    }
+}

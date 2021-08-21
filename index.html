@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Icon.png" type="image/jpg">
+    <link rel="stylesheet" href="CSS/MainPage.css">
+    <title>Radio</title>
+</head>
+<body>
+
+    <audio src="" type="audio/mpeg" autoplay></audio>
+    <!-- <div class="cookieCon">
+        <div class="insideCookie">
+            <img src="SVG/cookie.svg" alt="cookie">
+            <div class="cookieDes">
+                <div class="cookieHeader">Cookies</div>
+                <div class="cookieParagraph">
+                    We use cookies to improve your<br>
+                    browsing experience on our<br>
+                    page.
+                </div>
+            </div>
+        </div>
+        <button class="cookieBtn">Accept</button>
+    </div> -->
+
+    <nav>
+        <div class="logo">
+            <img src="SVG/MusicLogo - Circ (White).svg">
+        </div>
+
+        <div class="buttons">
+
+            <div class="ordButton">Home</div>
+            <div class="ordButton">Contact</div>
+            <div class="ordButton">About me</div>
+            <div class="cta">
+                Listen Now
+            </div>
+
+        </div>
+    </nav>
+    <!-- Body Content -->
+    <div class="sections-container">
+
+        <div class="pageWizzardContainer">
+            <div class="wizzards activeWizzard"></div>
+            <div class="wizzards"></div>
+            <div class="wizzards"></div>
+            <div class="wizzards"></div>
+        </div>
+        
+        <div class="page1 wrapper"></div>
+
+        <div class="page2 wrapper"></div>
+
+        <div class="page3 wrapper"></div>
+
+        <div class="page4 wrapper"></div>
+
+    </div>
+
+    <div class="minViewContainer">
+        <div class="backgroundView">
+
+        </div>
+    </div>
+
+    <div class="bottomPlayer">
+        <div class="con">
+            
+            <!-- Hover to show Minimize Icon -->
+            <div class="minimizeAction">
+                <img src="SVG/arrow.svg" alt="arrow_up">    
+            </div>
+
+            <div class="artistPic"></div>
+            <div class="songCon">
+                <marquee><div class="songTitleBot">Music Title</div></marquee>
+                <div class="artistBot">Artist</div>
+            </div>
+        </div>
+
+        <div class="durationContainer">
+            <div class="durationBarParentContainer">
+                <div class="durationBarContainer">
+                    <div class="currentDuration txtDuration">00:00</div>
+                    <div class="durationBarTimestampCon">
+                        <div class="durationBarTimestamp"></div>
+                        <div class="timestampCirc">
+                            <div class="mid"></div>
+                        </div>
+                    </div>
+                    <div class="totalDuration txtDuration">00:00</div>
+                </div>
+            </div>
+        </div>
+        <div class="btnCon">
+            <div class="prev musicController">
+                <img src="SVG/Prev.svg" alt="Prev">
+            </div>
+            <div class="space"></div>
+            <div class="play">
+                <img src="SVG/Play.svg" alt="Play" class="botPlayIcon">
+            </div>
+            <div class="space"></div>
+            <div class="next">
+                <img src="SVG/Next.svg" alt="Next">
+            </div>
+        </div>
+
+        <div class="states">
+            <div id="shuffleCon">
+                <img src="SVG/Shuffle.svg">
+            </div>
+
+            <div id="loopCon">
+                <img src="SVG/Loop.svg">
+            </div>
+        </div>
+    </div>
+
+    <!-- For transition purpose only -->
+    <div class="transitionToPlayer">
+        <img src="SVG/MusicLogo - Circ (Black).svg">
+    </div>
+
+    <div class="mainPlayerMainContainer">
+        <div class="mainPlayerContainer">
+
+            <div class="mainCon">
+                <div class="playlistMainContainer">
+                    <div class="playlistContainer">
+                        <div class="playlistTitle">Playlists</div>
+                        <div class="playlists">
+                            <div class="playlistBarsContainer">
+                                <div class="playlistBars">
+                                    <!-- Playlist Bars -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="musicBarsMainContainer">
+                    <div class="title">Playlist ~<span class="activeTitle">Lofi</span></div>
+                    <div class="musicBarconOv">
+                        <div class="musicBarContainer">
+                            <!-- Music Bars -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error Bar -->
+    <div class="errorOccured">
+        It seems that&nbsp;<div>error</div>&nbsp;has occured.
+    </div>
+
+    <!-- <script src="JS/jquery.min.js"></script> -->
+    <script src="JS/gsap.min.js"></script>
+    
+    <script src="JS/ScrollMagic.min.js"></script>
+    <script src="JS/debug.addIndicators.min.js"></script>
+    <script src="JS/animation.gsap.min.js"></script>
+    <script src="JS/TweenMax.min.js"></script>
+    
+    <script src="JS/Music.js"></script>
+</body>
+</html>
